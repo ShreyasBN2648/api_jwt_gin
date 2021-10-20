@@ -1,10 +1,9 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.16-alpine
+FROM golang:1.17-alpine
 
-ADD . .
 WORKDIR /app
-
+ADD . .
 COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
@@ -12,7 +11,7 @@ RUN go mod download
 COPY *.go ./
 COPY *.env ./
 
-RUN go build -o /go_jwt
+RUN go build -o /api_jwt_gin
 EXPOSE 4500
 
-CMD [ "/go_jwt" ]
+CMD [ "/api_jwt_gin" ]
