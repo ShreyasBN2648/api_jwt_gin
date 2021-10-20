@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"_/helpers"
+	"api_jwt_gin/helpers"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"

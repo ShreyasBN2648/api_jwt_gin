@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"_/database"
+	"api_jwt_gin/database"
 	"context"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"

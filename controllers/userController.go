@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"_/database"
-	"_/helpers"
-	"_/models"
+	"api_jwt_gin/database"
+	"api_jwt_gin/helpers"
+	"api_jwt_gin/models"
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"

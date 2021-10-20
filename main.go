@@ -1,7 +1,7 @@
 package main
 
 import (
-	"_/routes"
+	"api_jwt_gin/routes"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
