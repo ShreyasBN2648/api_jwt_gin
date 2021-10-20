@@ -47,10 +47,9 @@ func Signup() gin.HandlerFunc {
 		}
 
 		count, err := userCollection.CountDocuments(ctx, bson.M{"email": user.Email})
-		defer cancel()
 		if err != nil {
-			log.Panic(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Error occurred while checking for the email"})
+			log.Panic(err)
 			return
 		}
 
@@ -58,10 +57,9 @@ func Signup() gin.HandlerFunc {
 		user.Password = password
 
 		count, err = userCollection.CountDocuments(ctx, bson.M{"phone_number": user.Phone_Number})
-		defer cancel()
 		if err != nil {
-			log.Panic(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Error occurred while checking for the Phone Number."})
+			log.Panic(err)
 			return
 		}
 
@@ -102,7 +100,6 @@ func Signup() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"Error": msg})
 			return
 		}
-		defer cancel()
 
 		c.JSON(http.StatusOK, resultInsertionNumber)
 	}
@@ -278,12 +275,12 @@ func UpdateUser() gin.HandlerFunc {
 		}
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
 		var user models.User
+		defer cancel()
 		if err := c.BindJSON(&user); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
 		//var newUser models.User
-		defer cancel()
 		/*
 		err := userCollection.FindOne(ctx, bson.M{"user_id": userID}).Decode(&user)
 		if err != nil{

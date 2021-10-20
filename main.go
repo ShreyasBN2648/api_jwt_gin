@@ -12,9 +12,8 @@ import (
 func main() {
 	err := godotenv.Load("mongo.env")
 	if err != nil {
-		log.Fatal("Error loading the mongo.env file.")
 		fmt.Println("Error Connecting to MongoDB!")
-
+		log.Fatal("Error loading the mongo.env file.")
 	}
 
 	port := os.Getenv("PORT")
