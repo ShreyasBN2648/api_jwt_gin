@@ -36,6 +36,8 @@ services:
     container_name: "mongodb"
     ports:
       - "27017:27017"
+    volumes:
+      - ./mongodb:/api_jwt_gin/data/db
     restart: unless-stopped
 
   jwt_api:
