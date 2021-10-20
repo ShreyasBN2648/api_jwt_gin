@@ -282,13 +282,13 @@ func UpdateUser() gin.HandlerFunc {
 		}
 		//var newUser models.User
 		/*
-		err := userCollection.FindOne(ctx, bson.M{"user_id": userID}).Decode(&user)
-		if err != nil{
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
+			err := userCollection.FindOne(ctx, bson.M{"user_id": userID}).Decode(&user)
+			if err != nil{
+				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+				return
+			}
 
-		 */
+		*/
 		fmt.Println(user)
 		//opts := options.Update().SetUpsert(true)
 		//update := bson.M{"first_name": user.First_Name, "last_name": user.Last_Name, "email":user.Email, "password":user.Password}
@@ -309,7 +309,6 @@ func UpdateUser() gin.HandlerFunc {
 			{"phone_number", user.Phone_Number},
 			{"password", user.Password}},
 		}}
-
 
 		defer cancel()
 		_, err1 := userCollection.UpdateOne(ctx, bson.D{{"user_id", userID}}, update)
